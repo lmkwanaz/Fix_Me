@@ -8,14 +8,14 @@ import java.io.*;
 import java.nio.charset.*;
 
 public class ConnectionHandler implements CompletionHandler<AsynchronousSocketChannel, Attachment> {
-      private static int clientId = 100000;
+      private static int clientId = 543210;
   @Override
   public void completed(AsynchronousSocketChannel client, Attachment attach) {
     try {
       SocketAddress clientAddr = client.getRemoteAddress();
       System.out.format("Accepted a  connection from  %s%n", clientAddr);
       attach.server.accept(attach, this);
-      ReadWriteHandler rwHandler = new ReadWriteHandler();
+      rwHandler rwHandler = new rwHandler();
       Attachment newAttach = new Attachment();
       newAttach.server = attach.server;
       newAttach.client = client;
@@ -37,7 +37,7 @@ public class ConnectionHandler implements CompletionHandler<AsynchronousSocketCh
 
   @Override
   public void failed(Throwable e, Attachment attach) {
-    System.out.println("Failed to accept a  connection.");
+    System.out.println("Connection failed.");
     e.printStackTrace();
   }
 }

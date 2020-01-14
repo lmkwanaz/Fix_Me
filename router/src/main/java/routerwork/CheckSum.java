@@ -1,8 +1,8 @@
 package main.java.routerwork;
 
-public class CheckSum implements IResponsibility
+public class CheckSum implements Undependable
 {
-    private int CHECKSUM = IResponsibility.CHECKSUM;
+    private int CHECKSUM = Undependable.CHECKSUM;
     @Override
     public void performAction(Attachment attach, int resp) {
         if (resp != CHECKSUM) {
@@ -12,11 +12,11 @@ public class CheckSum implements IResponsibility
 
         int size = getMsgSize(attach.msg);
         int checksum = getCheckSum(attach.msg[attach.msg.length - 1]);
-        int action = IResponsibility.ECHOBACK;
+        int action = Undependable.ECHOBACK;
         if (size % 256 != checksum)
-            action = IResponsibility.ECHOBACK;
+            action = Undependable.ECHOBACK;
         else
-            action = IResponsibility.DISPATCH;
+            action = Undependable.DISPATCH;
         new ForwardTo().performAction(attach, action);
     }
 

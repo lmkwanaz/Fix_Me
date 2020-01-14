@@ -11,7 +11,7 @@ public class Attachment {
     public ByteBuffer buffer;
     public SocketAddress clientAddr;
     public String msg[];
-    public ReadWriteHandler rwHandler;
+    public rwHandler rwHandler;
     public boolean isRead;
 }
   

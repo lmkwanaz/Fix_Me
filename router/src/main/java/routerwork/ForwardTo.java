@@ -1,8 +1,8 @@
 package main.java.routerwork;
 
-public class ForwardTo implements IResponsibility
+public class ForwardTo implements Undependable
 {
-    private int DISPATCH = IResponsibility.DISPATCH;
+    private int DISPATCH = Undependable.DISPATCH;
     @Override
     public void performAction(Attachment attach, int resp)
     {
@@ -16,7 +16,7 @@ public class ForwardTo implements IResponsibility
         if (srcId != attach.clientId)
         {
             System.out.println("src = " + srcId + " clientId = "+ attach.clientId);
-            new EchoBack().performAction(attach, IResponsibility.ECHOBACK);
+            new EchoBack().performAction(attach, Undependable.ECHOBACK);
             return ;
         }  
         try
@@ -26,7 +26,7 @@ public class ForwardTo implements IResponsibility
                 Attachment att = Router.getClient(id);
                 if (att == null)
                 {
-                    new EchoBack().performAction(attach, IResponsibility.ECHOBACK);
+                    new EchoBack().performAction(attach, Undependable.ECHOBACK);
                     return ;
                 }
                 att.isRead = false;
@@ -35,7 +35,7 @@ public class ForwardTo implements IResponsibility
         }
         catch(Exception e)
         {
-            new EchoBack().performAction(attach, IResponsibility.ECHOBACK);
+            new EchoBack().performAction(attach, Undependable.ECHOBACK);
         }
     }
     private int getDestination(String datum[])

@@ -93,7 +93,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>main.java.brokerwork.Main</mainClass>
+                            <mainClass>main.java.broker.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

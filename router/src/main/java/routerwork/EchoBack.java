@@ -1,8 +1,8 @@
 package main.java.routerwork;
 
-public class EchoBack implements IResponsibility
+public class EchoBack implements Undependable
 {
-    private int ECHOBACK = IResponsibility.ECHOBACK;
+    private int ECHOBACK = Undependable.ECHOBACK;
     @Override
     public void performAction(Attachment attatch, int resp)
     {
